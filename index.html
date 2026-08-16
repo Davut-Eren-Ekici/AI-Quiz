@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI QUIZ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+
+    <div class="quiz-container">
+
+      <h1>AI QUIZ</h1>
+      <h3>Yapay zekâ ile kendi quizini oluştur:</h3>
+    
+    
+
+  
+    
+     <div class="form-group">
+      <label for="topic">Konu</label>
+
+      <input
+          type="text"
+          name="topic"
+          id="topic"
+          placeholder="Quiz Konusunu Yazın..."
+      >
+     </div>
+
+     <div class="form-group">
+      <label for="questionCount">Soru Sayısı</label>
+
+      <input
+          type="number"
+          name="questionCount"
+          id="questionCount"
+        placeholder="Quiz Soru Sayısını seçin..."
+      >
+     </div>
+    
+     <div class="form-group">
+         <label for="difficulty">Zorluk</label>
+      <select name="difficulty" id="difficulty">
+         <option value="easy">Kolay</option>
+         <option value="medium">Orta</option>
+         <option value="hard">Zor</option>
+      </select>
+     </div>
+    
+
+     <button id="startQuiz" type="button">
+        Quiz Başlat
+     </button>
+    </div>
+    
+
+   
+<script src="script.js"></script>
+</body>
+
+</html>
