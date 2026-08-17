@@ -4,6 +4,7 @@ const questionCountInput = document.querySelector("#questionCount");
 const difficultySelect = document.querySelector("#difficulty");
 
 
+
 startQuiz.addEventListener("click",function(){
     console.log("Quiz Başlatıldı!");
 
@@ -11,7 +12,16 @@ startQuiz.addEventListener("click",function(){
     const questionCount = questionCountInput.value;
     const difficulty = difficultySelect.value;
 
-    console.log(topic);
-    console.log(questionCount);
-    console.log(difficulty);
+    const quizSettings = {
+      topic,
+      questionCount,
+      difficulty
+    };
+
+
+    const quizJSON = JSON.stringify(quizSettings);
+    const quizObject = JSON.parse(quizJSON);
+    console.log(quizObject);
+    console.log(quizJSON);
+   
 });
