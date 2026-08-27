@@ -9,84 +9,71 @@
 </head>
 
 <body>
-    
 
-    <div class="quiz-container">
+    <!-- Quiz Configuration Setup Form -->
+    <div class="quiz-container" id="quiz-setup">
+        <h1 id="title">AI QUIZ</h1>
+        <h3 id="Explanation">Yapay zekâ ile kendi quizini oluştur:</h3>
 
-      <h1 id="title">AI QUIZ</h1>
-      <h3 id="Explanation">Yapay zekâ ile kendi quizini oluştur:</h3>
-    
-    
+        <div class="form-group">
+            <label for="topic">Konu</label>
+            <input type="text" name="topic" id="topic" placeholder="Quiz Konusunu Yazın...">
+        </div>
 
-  
-    
-     <div class="form-group">
-      <label for="topic">Konu</label>
+        <div class="form-group">
+            <label for="questionCount">Soru Sayısı</label>
+            <input type="number" name="questionCount" id="questionCount" placeholder="Quiz Soru Sayısını seçin...">
+        </div>
 
-      <input
-          type="text"
-          name="topic"
-          id="topic"
-          placeholder="Quiz Konusunu Yazın..."
-      >
-     </div>
+        <div class="form-group">
+            <label for="difficulty">Zorluk</label>
+            <select name="difficulty" id="difficulty">
+                <option value="easy">Kolay</option>
+                <option value="medium">Orta</option>
+                <option value="hard">Zor</option>
+            </select>
+        </div>
 
-     <div class="form-group">
-      <label for="questionCount">Soru Sayısı</label>
-
-      <input
-          type="number"
-          name="questionCount"
-          id="questionCount"
-        placeholder="Quiz Soru Sayısını seçin..."
-      >
-     </div>
-    
-     <div class="form-group">
-         <label for="difficulty">Zorluk</label>
-      <select name="difficulty" id="difficulty">
-         <option value="easy">Kolay</option>
-         <option value="medium">Orta</option>
-         <option value="hard">Zor</option>
-      </select>
-     </div>
-    
-
-     <button id="startQuiz" type="button">
-        Quiz Başlat
-     </button>
+        <button id="startQuiz" type="button">Quiz Başlat</button>
     </div>
-    
+
+    <!-- Active Question Container -->
+    <div class="quiz-container hidden" id="question-container">
+        <h2 id="question-text">Soru metni buraya gelecek...</h2>
+        
+        <div id="options-container"></div>
+
+        <button id="next-btn" class="hidden">Sonraki Soru</button>
+    </div>
+
+    <!-- Final Score Display Container -->
+    <div class="quiz-container hidden" id="result-container">
+        <h2>Quiz Tamamlandı! 🎉</h2>
+        <p id="score-text">5 sorudan 4 tanesini doğru bildiniz.</p>
+        <p id="score-percentage">%80 Başarı Oranı</p>
+        <button id="restartQuiz" type="button">Yeni Quiz Oluştur</button>
+    </div>
+
     <footer id="contact" data-aos="fade-up">
-                   <h2 class="hakkimda">İletişim</h2>
-                    
-                    <div class="footer-links">
-                            <a href="mailto:davuteren052@gmail.com">
+        <h2 class="hakkimda">İletişim</h2>
+        <div class="footer-links">
+            <a href="mailto:davuteren052@gmail.com">
+                <img src="images/gmail.png" class="icon" alt="gmail">
+                <span>davuteren052@gmail.com</span>
+            </a>
+            <a href="https://github.com/Davut-Eren-Ekici" target="_blank" rel="noopener">
+                <img src="images/github.png" class="icon" alt="GitHub">
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/eren-ekici-6808203b1/" target="_blank" rel="noopener">
+                <img src="images/linkedin.png" class="icon" alt="LinkedIn">
+                <span>LinkedIn</span>
+            </a>
+        </div>
+        <p class="copyright">© 2026 Davut Eren Ekici</p>
+    </footer>
 
-                            <img src="images/gmail.png" class="icon" alt="gmail">
-
-                                <span>davuteren052@gmail.com</span> 
-                            </a>
-
-                             <a href="https://github.com/Davut-Eren-Ekici" target="_blank" rel="noopener">
-
-                                <img src="images/github.png" class="icon" alt="GitHub">
-                        
-                                <span>GitHub</span>
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/eren-ekici-6808203b1/" target="_blank" rel="noopener">
-
-                                <img src="images/linkedin.png" class="icon" alt="LinkedIn">
-
-                                <span>LinkedIn</span>
-                            </a>
-                    </div>
-
-                        <p class="copyright">© 2026 Davut Eren Ekici</p>
-                 </footer>
-   
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
