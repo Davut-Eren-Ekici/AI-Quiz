@@ -31,7 +31,7 @@ startQuiz.addEventListener("click", async function() {
     const quizSettings = { topic, questionCount, difficulty };
 
     try {
-        const response = await fetch("http://localhost:3000/generate-quiz", {
+        const response = await fetch("https://ai-quiz-au71.onrender.com/generate-quiz", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(quizSettings)
