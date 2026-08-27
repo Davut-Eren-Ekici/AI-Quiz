@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/Davut-Eren-Ekici/AI-Quiz#readme",
   "dependencies": {
+    "@google/genai": "^2.19.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }
 }
