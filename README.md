@@ -32,3 +32,5 @@ Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip 
    ```bash
    git clone [https://github.com/Davut-Eren-Ekici/AI-Quiz.git](https://github.com/Davut-Eren-Ekici/AI-Quiz.git)
    cd AI-Quiz
+
+   
