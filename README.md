@@ -35,3 +35,4 @@ Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip 
    cd AI-Quiz
 
    
+   
