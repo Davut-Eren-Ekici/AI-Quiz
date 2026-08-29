@@ -8,16 +8,17 @@ Yapay zekâ destekli, kullanıcıların belirlediği konu, soru sayısı ve zorl
 
 ## Özellikler
 
-* **Dinamik Soru Üretimi:** Google Gemini AI entegrasyonu sayesinde her konuda anlık sorular hazırlar.
+* **Dinamik Soru Üretimi:** Google Gemini AI entegrasyonu sayesinde her konuda anlık ve özgün sorular hazırlar.
 * **Kişiselleştirilebilir Testler:** Konu, soru sayısı ve zorluk seviyesi (Kolay, Orta, Zor) seçebilme imkânı.
+* **Mobil Uyumluluk (Responsive):** Mobil, tablet ve masaüstü cihazlarda kusursuz çalışacak şekilde optimize edilmiş esnek arayüz.
+* **SEO & Görsel Optimizasyonu:** Arama motorları ve sosyal medya paylaşımları için gelişmiş meta etiketleri, anlamlı semantik HTML yapısı ve hızlı yüklenen optimize görseller.
 * **Canlı Yayın (Deployment):** Frontend **Netlify**, Backend **Render** üzerinde barındırılmaktadır.
-* **Duyarlı (Responsive) Tasarım:** Mobil ve masaüstü cihazlarla tam uyumlu arayüz.
 
 ---
 
 ## Kullanılan Teknolojiler
 
-* **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+* **Frontend:** HTML5 (Semantic & SEO), CSS3 (Flexbox/Grid, Responsive Media Queries), JavaScript (ES6+, Async/Await)
 * **Backend:** Node.js, Express.js
 * **Yapay Zekâ:** `@google/genai` (Google Gemini API)
 * **Sunucu & Deployment:** Render (Backend), Netlify (Frontend)
@@ -32,5 +33,4 @@ Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları takip 
    ```bash
    git clone [https://github.com/Davut-Eren-Ekici/AI-Quiz.git](https://github.com/Davut-Eren-Ekici/AI-Quiz.git)
    cd AI-Quiz
-
    

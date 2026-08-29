@@ -1,38 +1,39 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body{
-   
-    min-height: 100vh;
 
+body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    
     background-color: #111827;
     color: white;
     font-family: Arial, sans-serif;
-
+    padding: 20px 10px;
 }
-.quiz-container{
-   
-    width: 600px;
-    padding: 40px;
+
+/* Esnek ve Mobil Uyumlu Container */
+.quiz-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
     background-color: #1f2937;
     border-radius: 20px;
-
     margin: auto;
-
-    
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
-.form-group{
+
+.form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-bottom: 15px;
 }
+
 .form-group input,
-.form-group select{
+.form-group select {
     width: 100%;
     padding: 12px;
     border: none;
@@ -42,166 +43,126 @@ body{
     font-size: 15px;
     outline: none;
 }
-#startQuiz{
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
 
+/* Güçlü CTA Buton Stili */
+#startQuiz, #restartQuiz {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
     border: none;
     border-radius: 8px;
-
     background-color: #6366f1;
     color: white;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: all .35s ease;
-
-    position: relative;
-    overflow: hidden;
-}   
-#startQuiz:hover{
-    transform: translateY(-1px) scale(1.05) rotate(-1deg);
-    background-color: #4f46e5;
-      box-shadow:
-        0 0 20px rgba(96,165,250,.5),
-        0 0 40px rgba(96,165,250,.3),
-        0 0 60px rgba(96,165,250,.2);
-
-}
-#startQuiz:hover::before{
-    left: 160%;
-}
-#startQuiz::before{
-     content: "";
-    position: absolute;
-    top: 30;
-    left: -120%;
-    width: 60%;
-    height: 100%;
-    
-    background: rgba(255,255,255,.25);
-    transform: skewX(-10deg);
-    transition: .5s;
-}
-#title{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color:  rgba(96,165,250);
-    
-        
-}
-#Explanation{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color:  rgb(111, 143, 183);
-    
-}
-label{
-    margin-top: 4px;
-    margin-bottom: 2px;
-    font-size: 19px;
-     color:  rgb(127, 143, 163);
-}
-#difficulty{
     font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
     transition: all .35s ease;
-
     position: relative;
     overflow: hidden;
 }
-#difficulty::before{
-     content: "";
-    position: absolute;
-    top: 30;
-    left: -120%;
-    width: 60%;
-    height: 100%;
-    
-    background: rgba(255,255,255,.25);
-    transform: skewX(-10deg);
-    transition: .5s;
-}
-#difficulty:hover{
-    transform: translateY(-1px) scale(1.05) rotate(-1deg);
+
+#startQuiz:hover, #restartQuiz:hover {
+    transform: translateY(-2px) scale(1.02);
     background-color: #4f46e5;
-      box-shadow:
-        0 0 20px rgba(96,165,250,.5),
-        0 0 40px rgba(96,165,250,.3),
-        0 0 60px rgba(96,165,250,.2);
+    box-shadow: 
+        0 0 20px rgba(96, 165, 250, .5),
+        0 0 40px rgba(96, 165, 250, .3);
 }
-#difficulty:hover::before{
-    left: 160%;
+
+#title {
+    text-align: center;
+    color: #60a5fa;
+    font-size: 1.8rem;
+    line-height: 1.3;
 }
-option{
-    background-color: #312d7d;
-   
+
+#Explanation {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.95rem;
 }
-footer{
- 
+
+label {
+    font-size: 16px;
+    color: #d1d5db;
+    font-weight: 600;
+}
+
+#difficulty {
+    font-size: 15px;
+}
+
+option {
+    background-color: #1f2937;
+}
+
+footer {
     width: 100%;
     margin-top: auto;
-    
-    padding: 3px 20px;
+    padding: 20px 10px;
     background: #111827;
     border-top: 2px solid #2563eb;
     text-align: center;
-
 }
-.footer-links{
+
+.footer-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap;
-    margin: 40px 0;
+    margin: 20px 0;
 }
-.footer-links a{
+
+.footer-links a {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 20px;
+    padding: 10px 16px;
     background: #1e293b;
     border-radius: 12px;
+    color: white;
+    text-decoration: none;
     transition: .3s;
 }
-.footer-links a:hover{
+
+.footer-links a:hover {
     background: #2563eb;
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
-.icon{
-    width: 28px;
-    height: 28px;
-    vertical-align: middle;
-    margin-right: 10px;
+
+.icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }
-.copyright{
+
+.copyright {
     color: #94a3b8;
-    margin-top: 30px;
+    font-size: 0.85rem;
 }
+
 .hidden {
     display: none !important;
 }
-#question-text{
-    font-size: 1.3rem;
+
+#question-text {
+    font-size: 1.25rem;
     margin-bottom: 20px;
     line-height: 1.5;
     color: #ffffff;
 }
-#options-container{
+
+#options-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 20px;
 }
-.option-btn{
+
+.option-btn {
     width: 100%;
     padding: 14px 18px;
     background-color: #2a3547;
@@ -213,42 +174,37 @@ footer{
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
+
 .option-btn:hover {
     background-color: #3b485d;
     border-color: #4f607a;
-    transform: translateY(-2px);
-}
-.option-btn:active {
-    transform: translateY(0);
 }
 
 .option-btn.correct {
     background-color: #2e7d32 !important;
     border-color: #4caf50 !important;
-    color: #ffffff;
 }
 
 .option-btn.incorrect {
     background-color: #c62828 !important;
     border-color: #ef5350 !important;
-    color: #ffffff;
 }
-
 
 .options-disabled {
     pointer-events: none;
 }
 
-
 #result-container h2 {
     color: #ffffff;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 #score-text {
     font-size: 1.2rem;
     color: #e0e0e0;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 #score-percentage {
@@ -256,19 +212,40 @@ footer{
     font-weight: bold;
     color: #4caf50;
     margin-bottom: 25px;
+    text-align: center;
 }
-#restartQuiz{
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
 
-    border: none;
-    border-radius: 8px;
+/* MOBİL UYUMLULUK (RESPONSIVE) MEDYA SORGULARI */
+@media (max-width: 640px) {
+    body {
+        padding: 10px 5px;
+    }
 
-    background-color: #6366f1;
-    color: white;
+    .quiz-container {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
 
-    font-size: 16px;
-    font-weight: bold;
+    #title {
+        font-size: 1.4rem;
+    }
 
+    #question-text {
+        font-size: 1.1rem;
+    }
+
+    .option-btn {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .footer-links {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .footer-links a {
+        width: 100%;
+        justify-content: center;
+    }
 }

@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI QUIZ</title>
+    
+    <!-- SEO Meta Başlıkları ve Açıklamaları -->
+    <title>AI Quiz Generator - Yapay Zekâ ile Anında Test Oluştur</title>
+    <meta name="description" content="Google Gemini AI altyapısıyla istediğin konuda, dilediğin zorlukta dinamik testler ve quizler oluştur. Kendini hemen test et!">
+    <meta name="keywords" content="ai quiz, yapay zeka test, quiz oluşturucu, gemini ai quiz, online test çöz">
+    <meta name="author" content="Davut Eren Ekici">
+    <meta name="theme-color" content="#111827">
+
+    <!-- Open Graph (Sosyal Medya İletileri İçin) -->
+    <meta property="og:title" content="AI Quiz Generator - Yapay Zekâ İle Test Oluştur">
+    <meta property="og:description" content="Saniyeler içinde yapay zekâ desteğiyle kişiselleştirilmiş quizingi hazırla!">
+    <meta property="og:type" content="website">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,34 +24,36 @@
 
     <!-- Quiz Configuration Setup Form -->
     <div class="quiz-container" id="quiz-setup">
-        <h1 id="title">AI QUIZ</h1>
-        <h3 id="Explanation">Yapay zekâ ile kendi quizini oluştur:</h3>
+     
+        <h1 id="title">AI Destekli Dinamik Quiz Üretici</h1>
+        <p id="Explanation">Yapay zekâ ile istediğin konuda anında test oluştur:</p>
 
         <div class="form-group">
             <label for="topic">Konu</label>
-            <input type="text" name="topic" id="topic" placeholder="Quiz Konusunu Yazın...">
+            <input type="text" name="topic" id="topic" placeholder="Örn: Osmanlı Tarihi, JavaScript, Kuantum Fiziği...">
         </div>
 
         <div class="form-group">
             <label for="questionCount">Soru Sayısı</label>
-            <input type="number" name="questionCount" id="questionCount" placeholder="Quiz Soru Sayısını seçin...">
+            <input type="number" name="questionCount" id="questionCount" min="1" max="20" placeholder="Quiz Soru Sayısını seçin (Örn: 5)...">
         </div>
 
         <div class="form-group">
             <label for="difficulty">Zorluk</label>
             <select name="difficulty" id="difficulty">
                 <option value="easy">Kolay</option>
-                <option value="medium">Orta</option>
+                <option value="medium" selected>Orta</option>
                 <option value="hard">Zor</option>
             </select>
         </div>
 
-        <button id="startQuiz" type="button">Quiz Başlat</button>
+ 
+        <button id="startQuiz" type="button">🚀 Testimi Anında Oluştur</button>
     </div>
 
     <!-- Active Question Container -->
     <div class="quiz-container hidden" id="question-container">
-        <h2 id="question-text">Soru metni buraya gelecek...</h2>
+        <h2 id="question-text">Soru metni yükleniyor...</h2>
         
         <div id="options-container"></div>
 
@@ -51,22 +65,22 @@
         <h2>Quiz Tamamlandı! 🎉</h2>
         <p id="score-text">5 sorudan 4 tanesini doğru bildiniz.</p>
         <p id="score-percentage">%80 Başarı Oranı</p>
-        <button id="restartQuiz" type="button">Yeni Quiz Oluştur</button>
+        <button id="restartQuiz" type="button">🔄 Yeni Quiz Oluştur</button>
     </div>
 
-    <footer id="contact" data-aos="fade-up">
+    <footer id="contact">
         <h2 class="hakkimda">İletişim</h2>
         <div class="footer-links">
             <a href="mailto:davuteren052@gmail.com">
-                <img src="images/gmail.png" class="icon" alt="gmail">
+                <img src="images/gmail.png" class="icon" alt="Gmail İletişim" width="28" height="28" loading="lazy">
                 <span>davuteren052@gmail.com</span>
             </a>
             <a href="https://github.com/Davut-Eren-Ekici" target="_blank" rel="noopener">
-                <img src="images/github.png" class="icon" alt="GitHub">
+                <img src="images/github.png" class="icon" alt="GitHub Profil" width="28" height="28" loading="lazy">
                 <span>GitHub</span>
             </a>
             <a href="https://www.linkedin.com/in/eren-ekici-6808203b1/" target="_blank" rel="noopener">
-                <img src="images/linkedin.png" class="icon" alt="LinkedIn">
+                <img src="images/linkedin.png" class="icon" alt="LinkedIn Profil" width="28" height="28" loading="lazy">
                 <span>LinkedIn</span>
             </a>
         </div>
