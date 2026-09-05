@@ -5,86 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Başlıkları ve Açıklamaları -->
-    <title>AI Quiz Generator - Yapay Zekâ ile Anında Test Oluştur</title>
-    <meta name="description" content="Google Gemini AI altyapısıyla istediğin konuda, dilediğin zorlukta dinamik testler ve quizler oluştur. Kendini hemen test et!">
-    <meta name="keywords" content="ai quiz, yapay zeka test, quiz oluşturucu, gemini ai quiz, online test çöz">
-    <meta name="author" content="Davut Eren Ekici">
-    <meta name="theme-color" content="#111827">
+    <title>QuizCraft - Akıllı Test Hazırlama Platformu</title>
+    <meta name="description" content="Kendi dinamik sınavlarınızı ve quizlerinizi saniyeler içinde oluşturun.">
+    <meta name="theme-color" content="#f8fafc">
 
-    <!-- Open Graph (Sosyal Medya İletileri İçin) -->
-    <meta property="og:title" content="AI Quiz Generator - Yapay Zekâ İle Test Oluştur">
-    <meta property="og:description" content="Saniyeler içinde yapay zekâ desteğiyle kişiselleştirilmiş quizingi hazırla!">
-    <meta property="og:type" content="website">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Quiz Configuration Setup Form -->
-    <div class="quiz-container" id="quiz-setup">
-     
-        <h1 id="title">AI Destekli Dinamik Quiz Üretici</h1>
-        <p id="Explanation">Yapay zekâ ile istediğin konuda anında test oluştur:</p>
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <span class="logo-mark">Q</span>
+                <span class="logo-text">QuizCraft</span>
+            </div>
+            <div class="header-tag">Eğitim Modülü</div>
+        </div>
+    </header>
 
-        <div class="form-group">
-            <label for="topic">Konu</label>
-            <input type="text" name="topic" id="topic" placeholder="Örn: Osmanlı Tarihi, JavaScript, Kuantum Fiziği...">
+    <main class="main-content">
+        <!-- Main Form & Dashboard Card -->
+        <div class="split-card" id="quiz-setup">
+            <!-- Left Info Panel -->
+            <div class="card-sidebar">
+                <span class="sidebar-badge">Hızlı Hazırlık</span>
+                <h2>Özel Test Sınavınızı Oluşturun</h2>
+                <p>İstediğiniz konuyu yazın, soru sayısı ve zorluk seviyesini seçerek pratik testinizi anında başlatın.</p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="check-icon">✓</span>
+                        <span>Anında değerlendirme</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="check-icon">✓</span>
+                        <span>Seviyeye uygun soru yapısı</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form Panel -->
+            <div class="card-form-area">
+                <div class="form-group">
+                    <label for="topic">Test Konusu</label>
+                    <input type="text" name="topic" id="topic" placeholder="Örn: Osmanlı Tarihi, JavaScript, Biyoloji...">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="questionCount">Soru Sayısı</label>
+                        <input type="number" name="questionCount" id="questionCount" min="1" max="20" value="5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="difficulty">Zorluk Seviyesi</label>
+                        <select name="difficulty" id="difficulty">
+                            <option value="easy">Kolay</option>
+                            <option value="medium" selected>Orta</option>
+                            <option value="hard">Zor</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="startQuiz" class="btn btn-emerald" type="button">
+                    <span>Testi Başlat</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="questionCount">Soru Sayısı</label>
-            <input type="number" name="questionCount" id="questionCount" min="1" max="20" placeholder="Quiz Soru Sayısını seçin (Örn: 5)...">
+        <!-- Active Question Container -->
+        <div class="quiz-card hidden" id="question-container">
+            <div class="quiz-progress-bar-container">
+                <div class="quiz-progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="question-meta">
+                <span class="question-badge" id="question-tracker">Soru 1 / 5</span>
+            </div>
+
+            <h2 id="question-text">Soru metni yükleniyor...</h2>
+            
+            <div id="options-container" class="options-grid"></div>
         </div>
 
-        <div class="form-group">
-            <label for="difficulty">Zorluk</label>
-            <select name="difficulty" id="difficulty">
-                <option value="easy">Kolay</option>
-                <option value="medium" selected>Orta</option>
-                <option value="hard">Zor</option>
-            </select>
+        <!-- Final Score Display Container -->
+        <div class="quiz-card hidden" id="result-container">
+            <div class="result-badge-icon">🎯</div>
+            <h2>Test Tamamlandı!</h2>
+            <p id="score-text">5 sorudan 4 tanesini doğru yanıtladınız.</p>
+            <div class="score-pill">
+                <span id="score-percentage">%80</span> Başarı Oranı
+            </div>
+            <button id="restartQuiz" class="btn btn-emerald" type="button">
+                <span>Yeni Test Oluştur</span>
+            </button>
         </div>
-
- 
-        <button id="startQuiz" type="button">🚀 Testimi Anında Oluştur</button>
-    </div>
-
-    <!-- Active Question Container -->
-    <div class="quiz-container hidden" id="question-container">
-        <h2 id="question-text">Soru metni yükleniyor...</h2>
-        
-        <div id="options-container"></div>
-
-        <button id="next-btn" class="hidden">Sonraki Soru</button>
-    </div>
-
-    <!-- Final Score Display Container -->
-    <div class="quiz-container hidden" id="result-container">
-        <h2>Quiz Tamamlandı! 🎉</h2>
-        <p id="score-text">5 sorudan 4 tanesini doğru bildiniz.</p>
-        <p id="score-percentage">%80 Başarı Oranı</p>
-        <button id="restartQuiz" type="button">🔄 Yeni Quiz Oluştur</button>
-    </div>
+    </main>
 
     <footer id="contact">
-        <h2 class="hakkimda">İletişim</h2>
-        <div class="footer-links">
-            <a href="mailto:davuteren052@gmail.com">
-                <img src="images/gmail.png" class="icon" alt="Gmail İletişim" width="28" height="28" loading="lazy">
-                <span>davuteren052@gmail.com</span>
-            </a>
-            <a href="https://github.com/Davut-Eren-Ekici" target="_blank" rel="noopener">
-                <img src="images/github.png" class="icon" alt="GitHub Profil" width="28" height="28" loading="lazy">
-                <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/eren-ekici-6808203b1/" target="_blank" rel="noopener">
-                <img src="images/linkedin.png" class="icon" alt="LinkedIn Profil" width="28" height="28" loading="lazy">
-                <span>LinkedIn</span>
-            </a>
+        <div class="footer-container">
+            <p class="copyright">© 2026 Davut Eren Ekici</p>
+            <div class="footer-links">
+                <a href="mailto:davuteren052@gmail.com">E-Posta</a>
+                <a href="https://github.com/Davut-Eren-Ekici" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/eren-ekici-6808203b1/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
         </div>
-        <p class="copyright">© 2026 Davut Eren Ekici</p>
     </footer>
 
     <script src="script.js"></script>

@@ -10,22 +10,24 @@ const resultContainer = document.querySelector("#result-container");
 const scoreText = document.querySelector("#score-text");
 const scorePercentage = document.querySelector("#score-percentage");
 const restartQuiz = document.querySelector("#restartQuiz");
+const progressBar = document.querySelector("#progress-bar");
+const questionTracker = document.querySelector("#question-tracker");
 
 let quizQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0; 
 
 startQuiz.addEventListener("click", async function() {
-    const topic = topicInput.value;
+    const topic = topicInput.value.trim();
     const questionCount = questionCountInput.value;
     const difficulty = difficultySelect.value;
 
     if (!topic) {
-        alert("Lütfen bir konu girin!");
+        alert("Lütfen bir test konusu girin!");
         return;
     }
 
-    startQuiz.innerText = "Sorular Hazırlanıyor...";
+    startQuiz.innerHTML = "<span>Sorular Oluşturuluyor...</span>";
     startQuiz.disabled = true;
 
     const quizSettings = { topic, questionCount, difficulty };
@@ -56,7 +58,7 @@ startQuiz.addEventListener("click", async function() {
         console.error("Hata:", err);
         alert("Sunucuya bağlanılamadı!");
     } finally {
-        startQuiz.innerText = "Quiz Başlat";
+        startQuiz.innerHTML = `<span>Testi Başlat</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>`;
         startQuiz.disabled = false;
     }
 });
@@ -66,7 +68,14 @@ function showQuestion() {
     optionsContainer.classList.remove("options-disabled"); 
 
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    questionText.innerText = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+    const totalQuestions = quizQuestions.length;
+
+    // İlerleme çubuğu ve soru takip rozeti güncelleme
+    questionTracker.innerText = `Soru ${currentQuestionIndex + 1} / ${totalQuestions}`;
+    const progressPercent = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+
+    questionText.innerText = currentQuestion.question;
 
     currentQuestion.options.forEach(option => {
         const btn = document.createElement("button");
@@ -82,7 +91,6 @@ function showQuestion() {
 }
 
 function checkAnswer(selectedBtn, selectedOption, correctAnswer) {
-
     optionsContainer.classList.add("options-disabled");
 
     const allButtons = optionsContainer.querySelectorAll(".option-btn");
@@ -92,14 +100,13 @@ function checkAnswer(selectedBtn, selectedOption, correctAnswer) {
         score++;
     } else {
         selectedBtn.classList.add("incorrect");
-     
+      
         allButtons.forEach(btn => {
             if (btn.innerText === correctAnswer) {
                 btn.classList.add("correct");
             }
         });
     }
-
 
     setTimeout(() => {
         currentQuestionIndex++;
@@ -119,10 +126,9 @@ function showResults() {
     const totalQuestions = quizQuestions.length;
     const percentage = Math.round((score / totalQuestions) * 100);
 
-    scoreText.innerText = `${totalQuestions} sorudan ${score} tanesini doğru bildiniz.`;
-    scorePercentage.innerText = `%${percentage} Başarı Oranı`;
+    scoreText.innerText = `${totalQuestions} sorudan ${score} tanesini doğru yanıtladınız.`;
+    scorePercentage.innerText = `%${percentage}`;
 }
-
 
 restartQuiz.addEventListener("click", function() {
     resultContainer.classList.add("hidden");
